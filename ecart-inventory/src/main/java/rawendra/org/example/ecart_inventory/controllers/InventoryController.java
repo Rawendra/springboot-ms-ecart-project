@@ -22,6 +22,7 @@ public class InventoryController {
 
   @PostMapping("/getInventoryStatus")
   public InventoryCheckDto getInventoryStatus(@RequestBody InventoryCheckDto inventoryCheckDto) {
+    System.out.println("inventoryCheckDto"+inventoryCheckDto.toString());
     return inventoryService.getInventoryStatus(inventoryCheckDto);
   }
 
