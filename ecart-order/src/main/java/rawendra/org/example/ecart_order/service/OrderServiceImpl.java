@@ -26,7 +26,7 @@ import java.util.Optional;
 public class OrderServiceImpl implements OrderService {
 
   private final OrderRepository orderRepository;
-  private final WebClient webClient;
+  private final WebClient.Builder webClientBuilder;
   private final RestClient restClient;
 
   @Override
@@ -76,8 +76,8 @@ public class OrderServiceImpl implements OrderService {
             .inventoryDtoList(inventoryDtoList).build();
     System.out.println("inventoryCheckDto" + inventoryCheckDto.toString());
 
-    InventoryCheckDto inventoryCheckDtoResponse = webClient.post()
-            .uri("http://localhost:8086/api/inventory/getInventoryStatus")
+    InventoryCheckDto inventoryCheckDtoResponse = webClientBuilder.build().post()
+            .uri("http://ecart-inventory/api/inventory/getInventoryStatus")
             .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
             .body(Mono.just(inventoryCheckDto), InventoryCheckDto.class)
             .retrieve()
