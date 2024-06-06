@@ -1,0 +1,18 @@
+spring:
+  cloud:
+    gateway:
+      mvc:
+        routes:
+          - id: product-service
+            uri: lb://product-service
+            predicates:
+              - Method=GET,POST,PUT, PATCH, DELETE
+  application:
+    name: gateway-service
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: product-service
+#          uri: lb://product-service
+#          predicates:
+#            - Path=/api/products/**
