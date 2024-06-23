@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:5173")
-@RequestMapping("/product-service")
+@RequestMapping("/api/product-service")
 public class HomeController {
 
   @GetMapping("/home")
@@ -18,6 +18,10 @@ public class HomeController {
     return "index";
   }
 
+  @GetMapping("/")
+  public String getHomeLanding(){
+    return "index";
+  }
 
   @GetMapping("/products")
   @PreAuthorize("hasAuthority('USER','ADMIN')")

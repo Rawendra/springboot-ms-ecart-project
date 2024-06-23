@@ -8,8 +8,8 @@ import rawendra.org.srping_security_demo.dto.UserInfoDto;
 import rawendra.org.srping_security_demo.services.UserInfoDetailsServiceInterface;
 
 @RestController
-@RequestMapping("/spring-security-custom")
-@CrossOrigin(origins = "http://localhost:5173")
+@RequestMapping("/auth")
+@CrossOrigin(origins = "http://localhost:5173/")
 public class UserDetailsController {
 
   @Autowired
